@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "proyectocnn"
+version = "0.1.0"
+description = "Clasificador de objetos de escritorio usando CNN y Streamlit"
+authors = ["Alejandra Pérez Quintana"]
+readme = "README.md"
+packages = [{include = "app"}, {include = "server"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+tensorflow = "^2.10"
+streamlit = "^1.17"
+charset-normalizer = "^2.1.0"
+tensorflow-io-gcs-filesystem = "0.34.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
