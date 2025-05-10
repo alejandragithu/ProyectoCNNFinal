@@ -4,7 +4,7 @@ from PIL import Image, ExifTags
 from io import BytesIO
 
 # URL del servidor Flask
-SERVER_URL = "http://192.168.1.39:5000/predict"
+SERVER_URL = "http://87.223.147.9:5000/predict"
 
 # Etiquetas de clases
 class_labels = ['monitor', 'teclado', 'ratón', 'taza', 'libro', 'movil']
