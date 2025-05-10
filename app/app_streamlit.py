@@ -7,7 +7,7 @@ from io import BytesIO
 SERVER_URL = "http://127.0.0.1:5000/predict"
 
 # Etiquetas de clases
-class_labels = ['monitor', 'teclado', 'raton', 'taza', 'libro', 'movil']
+class_labels = ['monitor', 'teclado', 'ratón', 'taza', 'libro', 'movil']
 
 st.title("Clasificador de algunos Objetos de Escritorio 🖥️ 📚 ☕ 📱 ⌨️ 🖱️")
 st.write("""
@@ -43,6 +43,14 @@ def correct_orientation(img):
 
     return img
 
+def correct_label(label):
+    """
+    Corrige la etiqueta 'monitorizar' a 'monitor'.
+    """
+    if "monitorizar" in label.lower():
+        return "monitor"
+    return label
+
 # Cargar imagen
 uploaded_file = st.file_uploader("Sube una imagen", type=["jpg", "jpeg", "png"])
 
@@ -67,10 +75,10 @@ if uploaded_file is not None:
             result = response.json()
 
             # Extraer los valores del JSON
-            class_name = result.get('class_label', "Ninguno")
+            class_name = correct_label(result.get('class_label', "Ninguno"))
             confidence = result.get('confidence', 0.0)
 
-            second_class_name = result.get('second_class_label', "Ninguno")
+            second_class_name = correct_label(result.get('second_class_label', "Ninguno"))
             second_confidence = result.get('second_confidence', 0.0)
 
             # Mostrar resultados

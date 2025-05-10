@@ -17,7 +17,7 @@ except Exception as e:
     print(f"Error al cargar el modelo: {e}")
 
 # Definir las etiquetas de clase
-class_labels = ['monitor', 'teclado', 'raton', 'taza', 'libro', 'movil']
+class_labels = ['monitor', 'teclado', 'ratón', 'taza', 'libro', 'movil']
 
 # Umbral de confianza
 CONFIDENCE_THRESHOLD = 0.6
